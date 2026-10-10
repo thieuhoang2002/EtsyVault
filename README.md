@@ -5,7 +5,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-brightgreen)]()
-[![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-orange)](https://buymeacoffee.com)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-thhoang0903-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/thhoang0903)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-thhoang0903-FF5E5B?logo=ko-fi)](https://ko-fi.com/thhoang0903)
+[![PayPal](https://img.shields.io/badge/PayPal-Donate-00457C?logo=paypal)](https://paypal.me/thieuhoang2209)
 
 ---
 
@@ -46,7 +48,9 @@ Etsy account suspensions happen unexpectedly, and sellers frequently lose years 
 
 EtsyVault is free and open-source. If this tool brought you peace of mind or saved hours of work, consider supporting development:
 
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com)
+<a href="https://buymeacoffee.com/thhoang0903"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=thhoang0903&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+
+You can also support via **[Ko-fi](https://ko-fi.com/thhoang0903)** or **[PayPal](https://paypal.me/thieuhoang2209)**.
 
 ---
 
