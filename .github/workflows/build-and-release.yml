@@ -10,10 +10,8 @@ on:
 
 jobs:
   build-windows:
-    name: Build & Package Windows (x64)
+    name: Build Windows (x64)
     runs-on: windows-latest
-    permissions:
-      contents: write
 
     steps:
     - name: Checkout Source Code
@@ -42,19 +40,15 @@ jobs:
       run: |
         Compress-Archive -Path publish/win-x64/* -DestinationPath EtsyVault-Windows-x64.zip
 
-    - name: Upload Windows Asset to Release
-      if: startsWith(github.ref, 'refs/tags/v')
-      uses: softprops/action-gh-release@v2
+    - name: Upload Windows Artifact
+      uses: actions/upload-artifact@v4
       with:
-        files: EtsyVault-Windows-x64.zip
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: windows-asset
+        path: EtsyVault-Windows-x64.zip
 
   build-macos:
-    name: Build & Package macOS (Apple Silicon & Intel)
+    name: Build macOS (Apple Silicon & Intel)
     runs-on: macos-latest
-    permissions:
-      contents: write
 
     steps:
     - name: Checkout Source Code
@@ -68,7 +62,7 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore src/EtsyVault.UI/EtsyVault.UI.csproj
 
-    - name: Publish macOS Apple Silicon (osx-arm64 M1/M2/M3)
+    - name: Publish macOS Apple Silicon (osx-arm64)
       run: >
         dotnet publish src/EtsyVault.UI/EtsyVault.UI.csproj
         -c Release
@@ -91,12 +85,42 @@ jobs:
         tar -czvf EtsyVault-macOS-AppleSilicon-arm64.tar.gz -C publish/osx-arm64 .
         tar -czvf EtsyVault-macOS-Intel-x64.tar.gz -C publish/osx-x64 .
 
-    - name: Upload macOS Assets to Release
-      if: startsWith(github.ref, 'refs/tags/v')
+    - name: Upload macOS Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: macos-assets
+        path: |
+          EtsyVault-macOS-AppleSilicon-arm64.tar.gz
+          EtsyVault-macOS-Intel-x64.tar.gz
+
+  publish-release:
+    name: Publish Unified GitHub Release
+    needs: [build-windows, build-macos]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Download Windows Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: windows-asset
+
+    - name: Download macOS Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: macos-assets
+
+    - name: Create GitHub Release with All Binaries
       uses: softprops/action-gh-release@v2
       with:
         files: |
+          EtsyVault-Windows-x64.zip
           EtsyVault-macOS-AppleSilicon-arm64.tar.gz
           EtsyVault-macOS-Intel-x64.tar.gz
+        draft: false
+        prerelease: false
+        generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
