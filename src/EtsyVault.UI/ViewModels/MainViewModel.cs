@@ -29,7 +29,19 @@ public partial class MainViewModel : ViewModelBase
     private string _keystring = string.Empty;
 
     [ObservableProperty]
+    private string _sharedSecret = string.Empty;
+
+    [ObservableProperty]
+    private bool _showAdvancedSettings = false;
+
+    [ObservableProperty]
     private bool _isDemoMode = true;
+
+    [ObservableProperty]
+    private bool _isAuthenticated = false;
+
+    [ObservableProperty]
+    private string _connectedShopName = string.Empty;
 
     [ObservableProperty]
     private AppState _currentState = AppState.ReadyToConnect;
@@ -86,9 +98,15 @@ public partial class MainViewModel : ViewModelBase
                 {
                     throw new InvalidOperationException("Please enter your Etsy Keystring (Client ID).");
                 }
-                AddLog("Connecting with provided Keystring...");
-                // Note: For live mode, accessToken would be populated via OAuth PKCE receiver
-                client = new EtsyApiClient(Keystring, "ACCESS_TOKEN_PLACEHOLDER");
+                
+                AddLog("Initiating OAuth 2.0 PKCE authentication...");
+                var progressReporterAuth = new Progress<string>(AddLog);
+                var authenticator = new EtsyVault.Core.Auth.OAuthPkceAuthenticator();
+                var tokenResult = await authenticator.AuthenticateAsync(Keystring, SharedSecret, progressReporterAuth, _cts.Token);
+
+                IsAuthenticated = true;
+                AddLog("Access token acquired successfully. Connecting to Etsy API v3...");
+                client = new EtsyApiClient(Keystring, tokenResult.AccessToken);
             }
 
             // Step 1: Get Shop info

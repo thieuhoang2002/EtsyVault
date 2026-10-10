@@ -65,10 +65,23 @@
                             <!-- Keystring Input (Shown when Demo Mode is OFF) -->
                             <StackPanel Spacing="8" IsVisible="{Binding !IsDemoMode}">
                                 <TextBlock Text="Etsy Keystring (Client ID)" Foreground="#CCCCCC" />
-                                <TextBox Text="{Binding Keystring}" Watermark="Paste your Etsy Keystring (e.g. abcd1234efgh5678)"
+                                <TextBox Text="{Binding Keystring}" PlaceholderText="Paste your Etsy Keystring (e.g. abcd1234efgh5678)"
                                          Height="40" CornerRadius="6" VerticalContentAlignment="Center" />
                                 <TextBlock Text="Your Keystring stays 100% on this computer. Never transmitted to third-party servers."
                                            FontSize="11" Foreground="#777777" />
+
+                                <!-- Advanced Settings (Optional Shared Secret) -->
+                                <Expander Header="⚙️ Advanced Settings (Optional)" Margin="0,8,0,0"
+                                          Background="#252528" CornerRadius="6" HorizontalAlignment="Stretch">
+                                    <StackPanel Spacing="8" Margin="8">
+                                        <TextBlock Text="Etsy Shared Secret (Optional for PKCE)" Foreground="#AAAAAA" FontSize="12" />
+                                        <TextBox Text="{Binding SharedSecret}" PasswordChar="●"
+                                                 PlaceholderText="Leave empty unless required by your Etsy app setup"
+                                                 Height="36" CornerRadius="6" VerticalContentAlignment="Center" />
+                                        <TextBlock Text="By default, Etsy API v3 uses PKCE and does not require a Shared Secret for desktop apps."
+                                                   FontSize="11" Foreground="#666666" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </Expander>
                             </StackPanel>
 
                             <!-- Start Button -->
