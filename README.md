@@ -36,11 +36,14 @@ Etsy account suspensions happen unexpectedly, and sellers frequently lose years 
 
 ## 🛠️ Tech Stack & Architecture
 
-- **Runtime:** .NET 10 SDK (Targeting .NET 8 LTS)
+- **Runtime:** .NET 10 SDK
 - **UI Framework:** AvaloniaUI 12 + FluentAvalonia (Modern Windows 11 Fluent Design)
-- **Architecture:** MVVM (`CommunityToolkit.Mvvm`)
+- **Architecture:** Clean MVVM (`CommunityToolkit.Mvvm`)
 - **Excel/CSV Engine:** MiniExcel (High-throughput streaming)
-- **Concurreny:** `System.Threading.Channels` for parallel multi-worker image downloads
+- **Concurrency:** `System.Threading.Channels` for parallel multi-worker image downloads
+- **Security:** RFC 7636 OAuth 2.0 PKCE authentication with local loopback listener
+
+👉 **For comprehensive technical diagrams, OAuth sequence flows, and concurrency pipeline analysis, see [System Architecture & Engineering Deep-Dive](docs/architecture.md).**
 
 ---
 
