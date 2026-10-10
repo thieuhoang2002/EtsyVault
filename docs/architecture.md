@@ -95,23 +95,23 @@ Fetching high-resolution product imagery uses `System.Threading.Channels` with b
 
 ```mermaid
 flowchart LR
-    API["Etsy API v3<br/>(Rate Limited ~2.5 QPS)"] -->|Resolve URLs| Producer["Producer Thread"]
-    Producer -->|Enqueue Job O(1)| Channel[("Bounded In-Memory Channel")]
+    API["Etsy API v3 (Rate Limited ~2.5 QPS)"] -->|"Resolve URLs"| Producer["Producer Thread"]
+    Producer -->|"Enqueue Job O(1)"| Channel[("Bounded In-Memory Channel")]
     
-    Channel -->|Dequeue| Worker1["Worker 1"]
-    Channel -->|Dequeue| Worker2["Worker 2"]
-    Channel -->|Dequeue| Worker3["Worker 3"]
-    Channel -->|Dequeue| Worker4["Worker 4"]
+    Channel -->|"Dequeue"| Worker1["Worker 1"]
+    Channel -->|"Dequeue"| Worker2["Worker 2"]
+    Channel -->|"Dequeue"| Worker3["Worker 3"]
+    Channel -->|"Dequeue"| Worker4["Worker 4"]
     
-    Worker1 -->|Download Binary| CDN["Etsy CDN"]
-    Worker2 -->|Download Binary| CDN
-    Worker3 -->|Download Binary| CDN
-    Worker4 -->|Download Binary| CDN
+    Worker1 -->|"Download Binary"| CDN["Etsy CDN"]
+    Worker2 -->|"Download Binary"| CDN
+    Worker3 -->|"Download Binary"| CDN
+    Worker4 -->|"Download Binary"| CDN
 
-    Worker1 -->|Write Stream| Disk["Desktop Backup Folder"]
-    Worker2 -->|Write Stream| Disk
-    Worker3 -->|Write Stream| Disk
-    Worker4 -->|Write Stream| Disk
+    Worker1 -->|"Write Stream"| Disk["Desktop Backup Folder"]
+    Worker2 -->|"Write Stream"| Disk
+    Worker3 -->|"Write Stream"| Disk
+    Worker4 -->|"Write Stream"| Disk
 ```
 
 ---
