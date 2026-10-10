@@ -24,11 +24,36 @@ Etsy account suspensions happen unexpectedly, and sellers frequently lose years 
 
 ---
 
+## 📸 Screenshots
+
+| 1. Ready & Demo Mode | 2. API Credentials & Advanced Settings |
+| :---: | :---: |
+| ![Demo Mode](screenshots/01-demo-mode.png) | ![Credentials](screenshots/02-credentials-setup.png) |
+| **3. Realtime Concurrency Logs & Progress** | **4. Backup Complete & Disaster Recovery** |
+| ![Progress](screenshots/03-backup-progress.png) | ![Success](screenshots/04-backup-success.png) |
+
+---
+
+## 🔄 How Does EtsyVault Connect to Your Shop?
+
+You might wonder: *“How does the app know which shop to download just from a Keystring?”*
+
+Here is the simple, 100% private 4-step connection process:
+
+1. **You are already logged into Etsy:** You keep your shop account signed in on your normal web browser (Chrome, Safari, Edge).
+2. **Enter your Keystring & Click Start:** The app opens your browser to Etsy’s official authorization page (`https://www.etsy.com/oauth/connect`).
+3. **One-Click Authorization:** Because your browser already knows who you are, you simply click **"Grant Access"**. Etsy securely issues a temporary access token directly to the app running on your machine.
+4. **Auto-Discovery of Your Shop (`/users/me/shops`):** The app calls Etsy’s official endpoint to ask: *“Which shop belongs to this logged-in seller?”*. Etsy instantly returns your exact `shop_id`, and the app immediately begins archiving your listings and original high-resolution photos!
+
+> 🔒 **Zero Configuration & Zero Risk:** You never need to look up your internal Shop ID manually. No passwords or secret keys are ever shared with any third party.
+
+---
+
 ## 🚀 Quick Start
 
-1. Download the latest release for your platform from the [Releases](https://github.com) page.
+1. Download the latest release for your platform from the [Releases](https://github.com/thieuhoang2002/EtsyVault/releases) page (**Windows `.exe`** and **macOS Apple Silicon / Intel**).
 2. Follow our [2-Minute Free Etsy API Key Setup Guide](docs/how-to-get-etsy-api-key.md).
-3. Open `EtsyVault`, enter your Keystring, and click **Start Backup**!
+3. Open `EtsyVault`, paste your Keystring, and click **🚀 Start Full Backup**!
 
 *(Having trouble opening the app on Windows or Mac? See [Bypassing OS Warnings](docs/os-security-warnings.md).)*
 
