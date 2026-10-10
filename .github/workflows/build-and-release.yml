@@ -8,9 +8,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
-jobs:
-  build:
-    name: Build & Publish Single-File Binaries
+  build-windows:
+    name: Build & Package Windows (x64)
     runs-on: windows-latest
     permissions:
       contents: write
@@ -27,9 +26,6 @@ jobs:
     - name: Restore Dependencies
       run: dotnet restore src/EtsyVault.UI/EtsyVault.UI.csproj
 
-    - name: Build Solution
-      run: dotnet build src/EtsyVault.UI/EtsyVault.UI.csproj --configuration Release --no-restore
-
     - name: Publish Windows (win-x64 Self-Contained)
       run: >
         dotnet publish src/EtsyVault.UI/EtsyVault.UI.csproj
@@ -43,16 +39,63 @@ jobs:
     - name: Compress Windows Release
       shell: pwsh
       run: |
-        Compress-Archive -Path publish/win-x64/* -DestinationPath EtsyVault-win-x64.zip
+        Compress-Archive -Path publish/win-x64/* -DestinationPath EtsyVault-Windows-x64.zip
 
-    - name: Create GitHub Release
+    - name: Upload Windows Asset to Release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: softprops/action-gh-release@v2
+      with:
+        files: EtsyVault-Windows-x64.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-macos:
+    name: Build & Package macOS (Apple Silicon & Intel)
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore Dependencies
+      run: dotnet restore src/EtsyVault.UI/EtsyVault.UI.csproj
+
+    - name: Publish macOS Apple Silicon (osx-arm64 M1/M2/M3)
+      run: >
+        dotnet publish src/EtsyVault.UI/EtsyVault.UI.csproj
+        -c Release
+        -r osx-arm64
+        --self-contained true
+        -p:PublishSingleFile=true
+        -o publish/osx-arm64
+
+    - name: Publish macOS Intel (osx-x64)
+      run: >
+        dotnet publish src/EtsyVault.UI/EtsyVault.UI.csproj
+        -c Release
+        -r osx-x64
+        --self-contained true
+        -p:PublishSingleFile=true
+        -o publish/osx-x64
+
+    - name: Compress macOS Releases
+      run: |
+        tar -czvf EtsyVault-macOS-AppleSilicon-arm64.tar.gz -C publish/osx-arm64 .
+        tar -czvf EtsyVault-macOS-Intel-x64.tar.gz -C publish/osx-x64 .
+
+    - name: Upload macOS Assets to Release
       if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          EtsyVault-win-x64.zip
-        draft: false
-        prerelease: false
-        generate_release_notes: true
+          EtsyVault-macOS-AppleSilicon-arm64.tar.gz
+          EtsyVault-macOS-Intel-x64.tar.gz
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
