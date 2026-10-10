@@ -48,7 +48,7 @@ Etsy account suspensions happen unexpectedly, and sellers frequently lose years 
 
 EtsyVault is free and open-source. If this tool brought you peace of mind or saved hours of work, consider supporting development:
 
-<a href="https://buymeacoffee.com/thhoang0903"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=thhoang0903&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://buymeacoffee.com/thhoang0903" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 You can also support via **[Ko-fi](https://ko-fi.com/thhoang0903)** or **[PayPal](https://paypal.me/thieuhoang2209)**.
 
