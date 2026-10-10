@@ -8,6 +8,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
+jobs:
   build-windows:
     name: Build & Package Windows (x64)
     runs-on: windows-latest
