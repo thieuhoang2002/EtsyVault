@@ -8,6 +8,7 @@
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-thhoang0903-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/thhoang0903)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-thhoang0903-FF5E5B?logo=ko-fi)](https://ko-fi.com/thhoang0903)
 [![PayPal](https://img.shields.io/badge/PayPal-Donate-00457C?logo=paypal)](https://paypal.me/thieuhoang2209)
+[![Web Suite](https://img.shields.io/badge/Web%20Operations-Etsy%20Command%20Center-FF6B00?logo=googlechrome&logoColor=white)](https://etsy.thhoang.io.vn)
 
 ---
 
@@ -79,6 +80,18 @@ EtsyVault is free and open-source. If this tool brought you peace of mind or sav
 <a href="https://buymeacoffee.com/thhoang0903" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 You can also support via **[Ko-fi](https://ko-fi.com/thhoang0903)** or **[PayPal](https://paypal.me/thieuhoang2209)**.
+
+---
+
+## 🌐 Looking to Scale Your Etsy Operations & Sales?
+
+While **EtsyVault** specializes in local asset backup and disaster recovery, check out our companion web platform:
+
+👉 **[Etsy Command Center](https://etsy.thhoang.io.vn)** — *All-in-One Operations, Finance & Automation Suite*
+- 🎯 **Competitor Radar & Sales Delta:** Track real-time listing sales velocities and discover untapped niches.
+- 🛡️ **Trademark Shield:** Automated keyword risk scanning to protect listings against IP strikes.
+- 📈 **Net P&L Calculator:** Precise profit breakdown accounting for Etsy transaction fees, VAT, and ad spend.
+- 🔑 **Zero-Knowledge E2EE Vault:** Bank-grade client-side encryption for secure operations.
 
 ---
 

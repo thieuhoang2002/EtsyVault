@@ -208,6 +208,12 @@ public partial class MainViewModel : ViewModelBase
     }
 
     [RelayCommand]
+    private void OpenWebSuite()
+    {
+        OpenUrl("https://etsy.thhoang.io.vn");
+    }
+
+    [RelayCommand]
     private void ResetToReady()
     {
         CurrentState = AppState.ReadyToConnect;
