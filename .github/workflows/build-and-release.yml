@@ -23,10 +23,10 @@ jobs:
         dotnet-version: '10.0.x'
 
     - name: Restore Dependencies
-      run: dotnet restore EtsyVault.slnx
+      run: dotnet restore src/EtsyVault.UI/EtsyVault.UI.csproj
 
     - name: Build Solution
-      run: dotnet build EtsyVault.slnx --configuration Release --no-restore
+      run: dotnet build src/EtsyVault.UI/EtsyVault.UI.csproj --configuration Release --no-restore
 
     - name: Publish Windows (win-x64 Self-Contained)
       run: >

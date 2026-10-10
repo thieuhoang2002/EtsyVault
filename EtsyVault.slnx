@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/EtsyVault.Core/EtsyVault.Core.csproj" />
+    <Project Path="src/EtsyVault.UI/EtsyVault.UI.csproj" />
+  </Folder>
+</Solution>
