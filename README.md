@@ -9,7 +9,7 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-brightgreen?logo=apple&logoColor=white)]()
 [![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet&logoColor=white)]()
 [![Avalonia UI](https://img.shields.io/badge/UI-Avalonia%2012-purple?logo=avalonia)]()
-[![Web Suite](https://img.shields.io/badge/Web%20Operations-Etsy%20Command%20Center-FF6B00?logo=googlechrome&logoColor=white)](https://etsy.thhoang.io.vn)
+[![Web Suite](https://img.shields.io/badge/Web%20Operations-Etsy%20Command%20Center-FF6B00?logo=googlechrome&logoColor=white)](https://shopops.thhoang.io.vn)
 
 <p align="center">
   <b>Safeguard your entire Etsy shop in 1-click. Archive listings, tags, variation matrices, inventory, and original full-resolution photos directly to your PC. Ready-to-import Shopify CSV export included.</b>
@@ -149,7 +149,7 @@ Absolutely. EtsyVault is a <b>local-first desktop software</b>. It does not poss
 
 While **EtsyVault** specializes in local asset backup and disaster recovery, check out our companion web platform:
 
-👉 **[Etsy Command Center](https://etsy.thhoang.io.vn)** — *All-in-One Operations, Finance & Automation Suite*
+👉 **[Command Center for Etsy](https://shopops.thhoang.io.vn)** — *All-in-One Operations, Finance & Automation Suite*
 - 🎯 **Competitor Radar & Sales Delta:** Track real-time listing sales velocities and discover untapped niches.
 - 🛡️ **Trademark Shield:** Automated keyword risk scanning to protect listings against IP strikes.
 - 📈 **Net P&L Calculator:** Precise profit breakdown accounting for Etsy transaction fees, VAT, and ad spend.
